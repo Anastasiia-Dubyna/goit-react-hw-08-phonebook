@@ -1,28 +1,36 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { ContactForm } from './ContactForm/ContactForm';
-import { ContactList } from './ContactList/ContactList';
-import { Filter } from './Filter/Filter';
-import { useEffect } from 'react';
-import { fetchContact } from 'redux/operations';
-import { getError, getIsLoading } from 'redux/selectors';
-import css from './App.module.css';
+import { Route, Routes } from 'react-router-dom';
+import { lazy } from 'react';
+import { Layout } from './Layout/Layout';
+
+const HomePage = lazy(() => import('pages/HomePage/HomePage'));
+const LoginPage = lazy(() => import('../pages/LoginPage/LoginPage'));
+const RegisterPage = lazy(() => import('../pages/RegisterPage/RegisterPage'));
+const ContactsPage = lazy(() => import('../pages/ContactsPage/ContactsPage'));
+const NotFound = lazy(() => import('../pages/NotFound/NotFound'));
 
 export const App = () => {
-  const dispatch = useDispatch();
-  const isLoading = useSelector(getIsLoading);
-  const error = useSelector(getError);
-  useEffect(() => {
-    dispatch(fetchContact());
-  }, [dispatch]);
-
   return (
-    <section className={css.section}>
-      <h1 className={css.title}>Phonebook</h1>
-      <ContactForm />
-      {isLoading && <p className={css.text}>Loading...</p>}
-      <h2 className={css.secondTitle}>Contacts</h2>
-      <Filter />
-      {error ? <p className={css.text}>{error}</p> : <ContactList />}
-    </section>
+    <div>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
+          <Route
+            path="/register"
+            element={
+              <Route redirectTo="/contacts" element={<RegisterPage />} />
+            }
+          />
+          <Route
+            path="/login"
+            element={<Route redirectTo="/contacts" element={<LoginPage />} />}
+          />
+          <Route
+            path="/contacts"
+            element={<Route redirectTo="/login" element={<ContactsPage />} />}
+          />
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      </Routes>
+    </div>
   );
 };
