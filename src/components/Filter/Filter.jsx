@@ -1,21 +1,22 @@
-import React from 'react';
-import { FilterStyle, FilterInput, FilterLabel } from './Filter.styled';
-import { useDispatch } from 'react-redux';
-import { setFilter } from 'redux/contacts/filterSlice';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectFilter } from 'redux/filter/selectors';
+import { changeFilter } from 'redux/filter/filterSlice';
+import { Wrapper, Input, Label } from './Filter.styled';
 
 export const Filter = () => {
+  const value = useSelector(selectFilter);
   const dispatch = useDispatch();
 
+  const onChange = event => {
+    const normalizedValue = event.target.value.toLowerCase();
+
+    dispatch(changeFilter(normalizedValue));
+  };
+
   return (
-    <FilterStyle>
-      <FilterLabel>
-        Find contact by Name
-        <FilterInput
-          type="text"
-          name="filter"
-          onChange={evt => dispatch(setFilter(evt.target.value))}
-        ></FilterInput>
-      </FilterLabel>
-    </FilterStyle>
+    <Wrapper>
+      <Label>Find contacts by name</Label>
+      <Input type="text" value={value} onChange={onChange} />
+    </Wrapper>
   );
 };
