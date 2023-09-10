@@ -8,13 +8,13 @@ export const List = styled.ul`
   padding: 12px;
   border-radius: 4px;
   background-color: rgba(0, 0, 0, 0.6);
-  border: 3px solid #f08080;
+  border: 3px solid #000000;
   margin: 0 auto;
 `;
 
 export const Item = styled.li`
   background-color: #ffffff;
-  border: 3px solid #f08080;
+  border: 3px solid #000000;
   padding: 10px;
   border-radius: 4px;
   margin-bottom: 5px;
@@ -29,7 +29,7 @@ export const Button = styled.button`
   font: inherit;
   cursor: pointer;
   border-radius: 4px 8px;
-  border: 3px solid #f08080;
+  border: 3px solid #000000;
   display: flex;
   align-items: center;
 
