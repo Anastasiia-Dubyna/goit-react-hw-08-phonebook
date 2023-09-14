@@ -34,6 +34,7 @@ export const Button = styled.button`
   align-items: center;
 
   &:hover {
-    background-color: #b9bcd3;
+    background-color: #3167c1;
+    color: white;
   }
 `;

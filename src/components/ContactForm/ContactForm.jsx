@@ -81,7 +81,7 @@ export const ContactForm = () => {
           />
         </Label>
 
-        <Button type="submit"></Button>
+        <Button type="submit">Add contact</Button>
       </Form>
       <Filter />
     </>

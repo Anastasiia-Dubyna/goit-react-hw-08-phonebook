@@ -6,7 +6,7 @@ export const Form = styled.form`
   width: 400px;
   padding: 12px;
   background-color: rgba(0, 0, 0, 0.6);
-  border: 3px solid #3167c1;
+  border: 3px solid black;
   border-radius: 4px;
   margin: 0 auto;
 `;
@@ -15,12 +15,12 @@ export const Label = styled.label`
   display: flex;
   flex-direction: column;
   margin-bottom: 16px;
-  color: #3167c1;
+  color: black;
   font-size: 20px;
 `;
 
 export const Input = styled.input`
-  color: #3167c1;
+  color: black;
   padding: 8px 12px;
   font: inherit;
   cursor: pointer;
@@ -28,17 +28,19 @@ export const Input = styled.input`
 
 export const Button = styled.button`
   padding: 8px 12px;
+  height: 50px;
   font: inherit;
   cursor: pointer;
   border-radius: 4px;
-  border: 3px solid #1c3c72;
-  color: #98b0d8;
+  border: 3px solid black;
+  color: black;
   font-size: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
 
   &:hover {
-    background-color: #b9bcd3;
+    background-color: #3167c1;
+    color: white;
   }
 `;
