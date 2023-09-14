@@ -26,7 +26,7 @@ export const RegisterForm = () => {
         <Input
           type="text"
           name="name"
-          placeholder="Введіть ім'я"
+          placeholder="Enter your name"
           pattern="^[^\d]+$"
           title="Ім'я має містити лише літери, апострофи, дефіси та відступи"
           required
@@ -37,7 +37,7 @@ export const RegisterForm = () => {
         <Input
           type="email"
           name="email"
-          placeholder="Введіть адресу електронної пошти"
+          placeholder="Enter your e-mail"
           title="Будь ласка, введіть дійсну адресу електронної пошти"
           required
         />
@@ -47,7 +47,7 @@ export const RegisterForm = () => {
         <Input
           type="password"
           name="password"
-          placeholder="Введіть пароль"
+          placeholder="Enter your password"
           title="Пароль повинен містити тільки латинські літери (як великі, так і малі), цифри та інші символи"
           required
         />
